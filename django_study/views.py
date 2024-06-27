@@ -7,3 +7,8 @@ from django_study.serializers import PessoaSerializer
 class PessoaListCreate(generics.ListCreateAPIView):
     queryset =Pessoa.objects.all()
     serializer_class = PessoaSerializer
+    
+
+class PessoaFindById(generics.RetrieveAPIView):
+        queryset = Pessoa.objects.all()
+        serializer_class= PessoaSerializer

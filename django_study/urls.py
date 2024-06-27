@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
-from .views import PessoaListCreate
+from .views import PessoaListCreate,PessoaFindById
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('pessoas/', PessoaListCreate.as_view(),name='pessoa-list-create')
+    path('pessoas/', PessoaListCreate.as_view(),name='pessoa-list-create'),
+    path('pessoas/get/<int:pk>/', PessoaFindById.as_view(),name = 'pessoa-findbyid')
 ]
